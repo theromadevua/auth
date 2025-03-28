@@ -5,16 +5,14 @@ import { Model } from "mongoose";
 
 @Injectable()
 export class UsersService {
-    constructor(@InjectModel(User.name) private userModel: Model<User>) {}
- 
-    async createUser(dto: any) {
+    constructor(@InjectModel(User.name) private userModel: Model<UserDocument>) {}
+
+    async createUser(dto: CreateUserDto): Promise<UserDocument> {
         const user = await this.userModel.create(dto);
         return user;
     }
 
-    async getUserByEmail(email: string){
-        const user = await this.userModel.findOne({email})
-        return user;
+    async getUserByEmail(email: string): Promise<UserDocument | null> {
+        return this.userModel.findOne({ email }).exec();
     }
-    
 }

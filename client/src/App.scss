@@ -30,9 +30,11 @@ input{
 
 .inputs-container__link{
   text-align: start;
+  margin: 0;
+  cursor: pointer;
 }
 
-.inputs-container_button{
+.inputs-container__button{
   border: none;
   padding: 10px 20px;
   border-radius: 10px;

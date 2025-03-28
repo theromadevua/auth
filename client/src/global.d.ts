@@ -1,0 +1,11 @@
+
+declare global {
+    interface User {
+        email: string,
+        password: string
+    }
+
+}
+  
+  export {};
+  
