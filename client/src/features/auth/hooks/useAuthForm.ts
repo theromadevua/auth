@@ -21,8 +21,8 @@ const useAuthForm = (): UseAuthFormType => {
     const navigate = useNavigate();
     const dispatch = useAppDispatch();
 
-    const [email, setEmail] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [email, setEmail] = useState<string>('gogi@gogi.com');
+    const [password, setPassword] = useState<string>('123456');
     const type = useRef<string>("login");
 
     const sendFormData = useCallback(() => {

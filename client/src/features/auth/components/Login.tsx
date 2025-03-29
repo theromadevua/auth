@@ -27,7 +27,7 @@ const Register = () => {
                 placeholder="password" 
                 value={password} type="password" 
                 onChange={handlePasswordInput}/>
-            <button className="inputs-container__button" onClick={sendFormData}>
+            <button className={"inputs-container__button"} onClick={sendFormData}>
                 Send
             </button>
             <p className="inputs-container__link"><NavLink to={"/register"}>

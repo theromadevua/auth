@@ -1,13 +1,12 @@
-import { Route, Router, Routes } from 'react-router';
+import { Route, Routes } from 'react-router';
 import './App.scss';
 import Auth from './features/auth/index'
 import Main from './features/pages/Main';
-import { useDispatch, useSelector } from 'react-redux';
-import Authorized from './features/pages/Authorized';
+import { useSelector } from 'react-redux';
+import Weather from './features/weather';
 import { useEffect } from 'react';
 import { refresh } from './store/AuthThunks';
 import { RootState, useAppDispatch } from './store/store';
-import PassReset from './features/auth/components/PassReset';
 
 function App() {
   const {isAuth} = useSelector((state: RootState) => state.auth)
@@ -18,7 +17,7 @@ function App() {
     
     const authInterval = setInterval(() => {
       dispatch(refresh())
-    }, 1000 * 60 * 5)
+    }, 1000 * 60 * 60 )
 
     return () => {
       clearInterval(authInterval)
@@ -29,7 +28,7 @@ function App() {
     <div className="App">
           <div>
               <Routes>
-                {isAuth ? <Route path="/" element={<Authorized/>} /> : <Route path="/" element={<Main/>} />}
+                {isAuth ? <Route path="/" element={<Weather/>} /> : <Route path="/" element={<Main/>} />}
                 <Route path="/register" element={<Auth type="register"/>} />
                 <Route path="/login" element={<Auth type="login"/>} />
                 <Route path="/reset-password/:id" element={<Auth type="reset"/>} />
